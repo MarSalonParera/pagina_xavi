@@ -111,23 +111,33 @@ a {
     overflow: hidden;
 }
 
-.language-switcher button {
+.language-switcher span {
+    align-items: center;
+    background: var(--forest);
+    color: #fff;
+    display: inline-flex;
+    font-size: 0.82rem;
+    font-weight: 900;
+    min-height: 38px;
+    padding: 0 11px;
+}
+
+.language-switcher select {
     background: #fff;
     border: 0;
     color: var(--forest);
     cursor: pointer;
+    font: inherit;
+    font-size: 0.9rem;
     font-weight: 900;
     min-height: 38px;
+    min-width: 122px;
     padding: 0 10px;
 }
 
-.language-switcher button + button {
-    border-left: 1px solid var(--line);
-}
-
-.language-switcher button.active {
-    background: var(--forest);
-    color: #fff;
+.language-switcher select:focus {
+    box-shadow: none;
+    outline: 0;
 }
 
 .hero {
