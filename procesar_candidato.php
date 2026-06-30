@@ -62,19 +62,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($nombre === '' || !validar_email($email)) {
         $mensaje = "Error: revisa el nombre y el email";
         $tipo = "error";
-        header("Location: contacto.html?mensaje=" . urlencode($mensaje) . "&tipo=" . $tipo);
+        header("Location: trabaja-con-nosotros.html?mensaje=" . urlencode($mensaje) . "&tipo=" . $tipo);
         exit();
     }
 
     $cv = procesar_pdf('cv', 'uploads/cv', 'cv');
     if ($cv['error'] !== '') {
-        header("Location: contacto.html?mensaje=" . urlencode($cv['error']) . "&tipo=error");
+        header("Location: trabaja-con-nosotros.html?mensaje=" . urlencode($cv['error']) . "&tipo=error");
         exit();
     }
 
     $carta = procesar_pdf('carta', 'uploads/cartas', 'carta');
     if ($carta['error'] !== '') {
-        header("Location: contacto.html?mensaje=" . urlencode($carta['error']) . "&tipo=error");
+        header("Location: trabaja-con-nosotros.html?mensaje=" . urlencode($carta['error']) . "&tipo=error");
         exit();
     }
 
@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $stmt->close();
-    header("Location: contacto.html?mensaje=" . urlencode($mensaje) . "&tipo=" . $tipo);
+    header("Location: trabaja-con-nosotros.html?mensaje=" . urlencode($mensaje) . "&tipo=" . $tipo);
     exit();
 }
 ?>
