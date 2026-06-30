@@ -38,9 +38,15 @@ CREATE TABLE IF NOT EXISTS candidatos (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,
+    telefono VARCHAR(30),
+    pais VARCHAR(80),
+    ciudad VARCHAR(100),
     especialidad VARCHAR(100),
     experiencia TEXT,
+    linkedin VARCHAR(255),
+    descripcion TEXT,
     cv_path VARCHAR(255),
+    carta_path VARCHAR(255),
     fecha_candidatura TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

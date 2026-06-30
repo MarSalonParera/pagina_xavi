@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     $stmt->close();
     
-    header("Location: index.html?mensaje=" . urlencode($mensaje) . "&tipo=" . $tipo);
+    header("Location: contacto.html?mensaje=" . urlencode($mensaje) . "&tipo=" . $tipo);
     exit();
 }
 ?>

@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     // Redirigir de vuelta con mensaje
-    header("Location: index.html?mensaje=" . urlencode($mensaje) . "&tipo=" . $tipo);
+    header("Location: contacto.html?mensaje=" . urlencode($mensaje) . "&tipo=" . $tipo);
     exit();
 }
 ?>
