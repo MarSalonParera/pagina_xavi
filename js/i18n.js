@@ -5,7 +5,7 @@ const browserLanguages = navigator.languages && navigator.languages.length
     ? navigator.languages
     : [navigator.language || "es"];
 
-const spanishLikeLanguages = ["es", "ca", "gl", "eu"];
+const spanishLikeLanguages = ["es", "gl", "eu"];
 const detectedLanguage = browserLanguages[0].toLowerCase().split("-")[0];
 const supportedLanguages = [
     { code: "es", label: "Español" },
@@ -25,11 +25,69 @@ const activeLanguage = supportedLanguageCodes.includes(requestedLanguage)
     ? requestedLanguage
     : supportedLanguageCodes.includes(savedLanguage)
         ? savedLanguage
-        : spanishLikeLanguages.includes(detectedLanguage)
-            ? "es"
-            : "en";
+        : supportedLanguageCodes.includes(detectedLanguage)
+            ? detectedLanguage
+            : spanishLikeLanguages.includes(detectedLanguage)
+                ? "es"
+                : "en";
 
 const translations = {
+    ca: {
+        "Abrir menú": "Obrir menú",
+        "Menú principal": "Menú principal",
+        "Inicio": "Inici",
+        "Sobre Nosotros": "Sobre Nosaltres",
+        "Quién soy": "Qui soc",
+        "Servicios": "Serveis",
+        "Metodología": "Metodologia",
+        "Proyectos": "Projectes",
+        "Blog": "Blog",
+        "Contacto": "Contacte",
+        "Trabaja": "Treballa",
+        "Preguntas frecuentes": "Preguntes freqüents",
+        "¿Tienes alguna duda?": "Tens algun dubte?",
+        "Aqui encontraras respuestas a las preguntas mas habituales sobre nuestros servicios y metodologia.": "Aquí trobaràs respostes a les preguntes més habituals sobre els nostres serveis i metodologia.",
+        "¿Que es la agricultura regenerativa?": "Què és l'agricultura regenerativa?",
+        "La agricultura regenerativa es un modelo de produccion que mejora la salud del suelo, aumenta la biodiversidad y optimiza el uso de los recursos naturales mediante practicas sostenibles.": "L'agricultura regenerativa és un model de producció que millora la salut del sòl, augmenta la biodiversitat i optimitza l'ús dels recursos naturals mitjançant pràctiques sostenibles.",
+        "¿Que servicios ofrece True Regenerative?": "Quins serveis ofereix True Regenerative?",
+        "Ofrecemos consultoria en agricultura regenerativa, gestion del agua, biochar, biofertilizantes, acuicultura regenerativa, analisis de suelo y planificacion holistica.": "Oferim consultoria en agricultura regenerativa, gestió de l'aigua, biochar, biofertilitzants, aqüicultura regenerativa, anàlisi de sòl i planificació holística.",
+        "¿Trabajais fuera de España?": "Treballau fora d'Espanya?",
+        "Si. Colaboramos en proyectos nacionales e internacionales, adaptandonos a las necesidades de cada cliente.": "Sí. Col·laborem en projectes nacionals i internacionals, adaptant-nos a les necessitats de cada client.",
+        "¿Como puedo solicitar una consultoria?": "Com puc sol·licitar una consultoria?",
+        "Rellena el formulario de consultoria en la pagina de contacto indicando tu proyecto. Analizaremos tu caso y nos pondremos en contacto contigo.": "Emplena el formulari de consultoria a la pàgina de contacte indicant el teu projecte. Analitzarem el teu cas i ens posarem en contacte amb tu.",
+        "¿Que beneficios aporta el biochar?": "Quins beneficis aporta el biochar?",
+        "El biochar mejora la estructura del suelo, aumenta la retencion de agua, favorece la actividad biologica y contribuye a la captura de carbono.": "El biochar millora l'estructura del sòl, augmenta la retenció d'aigua, afavoreix l'activitat biològica i contribueix a la captura de carboni.",
+        "¿La agricultura regenerativa reduce la produccion al principio?": "L'agricultura regenerativa redueix la producció al principi?",
+        "No tiene por que. La transicion debe hacerse de forma gradual, con diagnostico previo, pruebas en parcelas concretas y seguimiento tecnico para proteger la productividad mientras mejora el suelo.": "No té per què. La transició s'ha de fer de manera gradual, amb diagnòstic previ, proves en parcel·les concretes i seguiment tècnic per protegir la productivitat mentre millora el sòl.",
+        "¿Cuanto tiempo tarda en verse la mejora del suelo?": "Quant de temps triga a veure's la millora del sòl?",
+        "Algunos cambios, como mejor infiltracion de agua o mayor actividad biologica, pueden observarse durante la primera campaña. La mejora estable de materia organica, estructura y fertilidad suele requerir varias temporadas.": "Alguns canvis, com una millor infiltració d'aigua o una major activitat biològica, es poden observar durant la primera campanya. La millora estable de matèria orgànica, estructura i fertilitat sol requerir diverses temporades.",
+        "¿Sirve para cualquier tipo de cultivo?": "Serveix per a qualsevol tipus de cultiu?",
+        "Si, pero no se aplica igual en todos los casos. Un cultivo leñoso, una huerta, cereal, pasto o invernadero necesitan estrategias distintas de cubierta vegetal, manejo del suelo, agua y nutricion.": "Sí, però no s'aplica igual en tots els casos. Un cultiu llenyós, una horta, cereal, pastura o hivernacle necessiten estratègies diferents de cobertura vegetal, maneig del sòl, aigua i nutrició.",
+        "¿Tengo que dejar de usar fertilizantes de golpe?": "He de deixar d'usar fertilitzants d'un cop?",
+        "No recomendamos cambios bruscos sin datos. Lo habitual es optimizar la fertilizacion, incorporar biofertilizantes o compost, medir resultados y reducir insumos externos de forma progresiva cuando el sistema responde.": "No recomanem canvis bruscos sense dades. El habitual és optimitzar la fertilització, incorporar biofertilitzants o compost, mesurar resultats i reduir inputs externs de manera progressiva quan el sistema respon.",
+        "¿Como ayuda al ahorro de agua?": "Com ajuda a l'estalvi d'aigua?",
+        "Un suelo con mejor estructura, mas materia organica y mayor vida microbiana infiltra y retiene mejor el agua. Esto reduce escorrentias, mejora la resiliencia frente a sequias y puede hacer mas eficiente el riego.": "Un sòl amb millor estructura, més matèria orgànica i més vida microbiana infiltra i reté millor l'aigua. Això redueix l'escorrentia, millora la resiliència davant de sequeres i pot fer més eficient el reg.",
+        "¿Que papel tienen las cubiertas vegetales?": "Quin paper tenen les cobertes vegetals?",
+        "Las cubiertas protegen el suelo de la erosion, alimentan la microbiologia, mejoran la infiltracion y pueden favorecer biodiversidad util. Su manejo debe adaptarse al clima, cultivo, disponibilidad de agua y maquinaria.": "Les cobertes protegeixen el sòl de l'erosió, alimenten la microbiologia, milloren la infiltració i poden afavorir la biodiversitat útil. El seu maneig s'ha d'adaptar al clima, cultiu, disponibilitat d'aigua i maquinària.",
+        "¿Como se mide si una finca esta regenerando?": "Com es mesura si una finca està regenerant?",
+        "Se mide combinando indicadores: materia organica, compactacion, infiltracion, actividad biologica, biodiversidad, consumo de insumos, rendimiento, calidad del cultivo y rentabilidad. Lo importante es comparar datos en el tiempo.": "Es mesura combinant indicadors: matèria orgànica, compactació, infiltració, activitat biològica, biodiversitat, consum d'inputs, rendiment, qualitat del cultiu i rendibilitat. El més important és comparar dades al llarg del temps.",
+        "¿La agricultura regenerativa es lo mismo que agricultura ecologica?": "L'agricultura regenerativa és el mateix que l'agricultura ecològica?",
+        "No exactamente. La agricultura ecologica se basa en una normativa de produccion. La regenerativa se centra en mejorar funciones del ecosistema: suelo vivo, agua, biodiversidad, carbono y resiliencia productiva.": "No exactament. L'agricultura ecològica es basa en una normativa de producció. La regenerativa se centra a millorar funcions de l'ecosistema: sòl viu, aigua, biodiversitat, carboni i resiliència productiva.",
+        "¿Como puedo trabajar con vosotros?": "Com puc treballar amb vosaltres?",
+        "Accede a la pagina <a class=\"text-link\" href=\"trabaja-con-nosotros.html\">Trabaja con nosotros</a> y envianos tu curriculum mediante el formulario de candidatura.": "Accedeix a la pàgina <a class=\"text-link\" href=\"trabaja-con-nosotros.html\">Treballa amb nosaltres</a> i envia'ns el teu currículum mitjançant el formulari de candidatura.",
+        "© 2026 True Regenerative. Todos los derechos reservados.": "© 2026 True Regenerative. Tots els drets reservats.",
+        "Todos los derechos reservados.": "Tots els drets reservats.",
+        "Sobre True Regenerative": "Sobre True Regenerative",
+        "Diseñamos sistemas que recuperan fertilidad, agua y biodiversidad.": "Dissenyem sistemes que recuperen fertilitat, aigua i biodiversitat.",
+        "Quiénes somos": "Qui som",
+        "True Regenerative es una consultoría especializada en proyectos regenerativos para agricultura, agua, acuicultura, biofertilizantes, biochar, microalgas y gestión holística.": "True Regenerative és una consultoria especialitzada en projectes regeneratius per a agricultura, aigua, aqüicultura, biofertilitzants, biochar, microalgues i gestió holística.",
+        "Acompañamos a fincas, empresas agroalimentarias, proyectos acuícolas y entidades públicas en la transición hacia modelos productivos capaces de regenerar los recursos de los que dependen.": "Acompanyem finques, empreses agroalimentàries, projectes aqüícoles i entitats públiques en la transició cap a models productius capaços de regenerar els recursos dels quals depenen.",
+        "Trabajamos desde una visión práctica: diagnóstico, diseño, implementación y seguimiento para que cada proyecto pueda mejorar su rentabilidad, su resiliencia y su impacto ambiental.": "Treballam des d'una visió pràctica: diagnòstic, disseny, implementació i seguiment perquè cada projecte pugui millorar la seva rendibilitat, la seva resiliència i el seu impacte ambiental.",
+        "Misión": "Missió",
+        "Convertir el conocimiento técnico en soluciones aplicables: suelos vivos, agua mejor gestionada, menor dependencia de insumos externos y proyectos rentables a largo plazo.": "Convertir el coneixement tècnic en solucions aplicables: sòls vius, aigua millor gestionada, menor dependència d'inputs externs i projectes rendibles a llarg termini.",
+        "Visión": "Visió",
+        "Impulsar territorios productivos que capturan carbono, aumentan biodiversidad y generan valor económico sin agotar su base natural.": "Impulsar territoris productius que capturen carboni, augmentin la biodiversitat i generin valor econòmic sense esgotar la seva base natural."
+    },
     en: {
         "Abrir menú": "Open menu",
         "Menú principal": "Main menu",
@@ -1403,14 +1461,14 @@ function createLanguageSwitcher(language) {
 
     const switcher = document.createElement("label");
     switcher.className = "language-switcher";
-    switcher.setAttribute("aria-label", language === "en" ? "Language selector" : "Selector de idioma");
+    switcher.setAttribute("aria-label", language === "en" ? "Language selector" : language === "ca" ? "Selector d'idioma" : "Selector de idioma");
 
     const shortCode = document.createElement("span");
     shortCode.textContent = language.toUpperCase();
     switcher.appendChild(shortCode);
 
     const select = document.createElement("select");
-    select.setAttribute("aria-label", language === "en" ? "Choose language" : "Elegir idioma");
+    select.setAttribute("aria-label", language === "en" ? "Choose language" : language === "ca" ? "Tria l'idioma" : "Elegir idioma");
 
     supportedLanguages.forEach(({ code, label }) => {
         const option = document.createElement("option");
